@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+permissions:
+  id-token: write       # ✅ Required for OIDC
+  pages: write          # ✅ Required to deploy to Pages
+  contents: read        # ✅ Allows reading repo content
 
 jobs:
   deploy:
