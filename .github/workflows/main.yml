@@ -1,15 +1,25 @@
 name: Deploy to GitHub Pages
 
-on: push
+on:
+  push:
+    branches:
+      - main
+
 jobs:
-  Testing:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v4
 
-      - name: maven test
-        run: mvn test
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
 
-      - name: checkstyle
-        run:  mvn checkstyle:checkstyle
+      - name: Upload pages artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: './'  # Or './docs' or wherever your index.html is
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v2
