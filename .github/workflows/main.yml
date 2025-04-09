@@ -1,6 +1,6 @@
 name: Deploy to GitHub Pages
 
-on: workflow_dispatch
+on: push
 jobs:
   Testing:
     runs-on: ubuntu-latest
