@@ -3,4 +3,9 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "Hello from CodeBuild!"
+      - echo "Passing through source to deploy..."
+
+artifacts:
+  files:
+    - '**/*'
+  discard-paths: no
